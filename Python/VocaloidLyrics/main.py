@@ -157,7 +157,7 @@ class Main(window.VocaloidLyricsWindow):
     def sendLyrics(self, toaddr, title, body):
         self.btnSendMail.Disable()  # self.sendLyrics()で有効化
         self.setInfo(u"".join([u'"', title, u'"を送信します。']))
-        mail = gmail.Gmail("vocaloidlyrics717@gmail.com", "vocaloidlyrics717")
+        mail = gmail.Gmail("vocaloidlyrics717@gmail.com", "password")
         mail.createMessage(toaddr, title, body)
         mail.send()
         self.setInfo("".join(['"', toaddr, '"', u"宛てに", '"', title, u'"を送信しました。']))
