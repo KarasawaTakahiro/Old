@@ -1,5 +1,8 @@
 nicoDL_dev
 ==========
+ニコニコ動画からURLをもとに動画を保存します。  
+動画説明文やサムネイルなど付属情報も保存するバージョンがあります。  
+
 
 ##バージョン遷移
 
@@ -10,3 +13,12 @@ nicoDL_dev
 
 ## 補足
 .ndlファイルを見るにはnicoDL_LibraryViewerが必要
+
+## 環境
+* windowsXP
+* python 2.6
+* wxPython 2.7
+
+##実行
+windowsXPで動作はしますが、フォルダ指定がハードコードのため、動作はしません。  
+nicoDL.py もしくは nicoDL_main.pyを実行します。
