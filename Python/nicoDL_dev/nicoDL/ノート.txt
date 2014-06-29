@@ -1,0 +1,22 @@
+
+メールフォーマット
+[URL, func]
+
+!Instruction!
+  quit      : 終了
+  active   :起動中か
+  -p         :psp用に変換
+
+================================
+movie_formats, mylist_formats
+myformatの入れ物
+
+find(text)
+textからIDを見つけmk_movie_f(...), mk_mylist_f(...)で作ったmyformatを返す
+
+mk_movie_f(...), mk_mylist_f(...)
+myformat を作る
+
+separation(myformat)
+myformatを振り分け
+================================

@@ -1,0 +1,35 @@
+--開始---------------------------------------------------------
+
+保存先のフォルダを選んでください.
+Enter. C:\Documents and Settings\TOSHIBA\My Documents\My Documents\Takahiro\Temporary Files
+1. C:\Documents and Settings\TOSHIBA\My Documents\My Documents\Takahiro\Program\MyProject\rename\after
+以下のファイル名を変更
+->  Yakitate!! Japan ep14 1_211.flv
+
+バックアップを取りますか？
+-> Yes!
+
+前回の名前を使いますか？
+ 焼きたて!!ジャぱん
+-> 焼きたて!!ジャぱん
+を使います.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+処理開始.
+ Yakitate!! Japan ep14 1_211.flv
+
+バックアップを保存中...
+ Yakitate!! Japan ep14 1_211.flv
+バックアップ完了！
+->  C:\Documents and Settings\TOSHIBA\My Documents\My Documents\Takahiro\Program\MyProject\rename\back up\Yakitate!! Japan ep14 1_211.flv
+
+リネーム中...
+Yakitate!! Japan ep14 1_211.flv 
+   ↓↓↓
+Ep14-1 焼きたて!!ジャぱん (2.flv
+
+リネーム完了！
+-> C:\Documents and Settings\TOSHIBA\My Documents\My Documents\Takahiro\Temporary Files\Ep14-1 焼きたて!!ジャぱん (2.flv
+
+Enter で終了.

@@ -1,0 +1,142 @@
+f = open("log.txt", "a")
+
+\\
+
+
+    for t in renge(1,3):    # カウントダウン
+        print t
+        time.sleep(1)
+
+\\
+
+
+            c = 0
+        elif text == otext:    # かぶった時
+            c += 1
+            print "==", c
+            
+            continue
+        else:
+            print 'else'
+
+
+
+\\
+
+-------------------------------"
+            print text, "\n"
+            
+            f = open("log.txt", "a")
+            f.write(text+"\n""\n"+"\\\\"+"\n""\n")    # ファイルに書く
+            f.close
+            c = 0
+        elif text == otext:    # かぶった時
+            c += 1
+            print "==", c
+            
+            continu
+
+\\
+
+text, "\n"
+            
+            f = open("log.txt", "a")
+            f.write(text+"\n""\n"+"\\\\"+"\n""\n")    # ファイルに書く
+            f.close
+            c = 0
+        elif text == otext:    # かぶった時
+            c += 1
+            print "==", c
+            
+            continue
+        else:
+            
+
+\\
+
+
+    for t in renge(1,3):    # カウントダウン
+        print t
+        time.sleep(1)
+
+\\
+
+oseA
+
+\\
+
+wx.Frame.__init__(self, parent, id, title, size = (188, 60))
+        self.menubar = wx.MenuBar()
+        self.panel = wx.Panel(self)
+
+\\
+
+CreatePopupMenu
+
+\\
+
+# -*- coding: utf-8 -*-
+
+import wx
+
+class MyTaskbar(wx.TaskBarIcon):
+    def __init__(self, parent):
+        wx.TaskBarIcon.__init__(self)
+        self.parent = parent
+
+    def CreatePopupMenu(self):
+        return self.parent.GetPopupMenu()
+
+
+class TaskTrayFrame(wx.Frame):
+    def __init__(self, parent):
+        wx.Frame.__init__(self, parent, wx.ID_ANY, u'Task tray frame')
+
+        self.tasktray = MyTaskbar(self)
+
+        self.tasktray.SetIcon(
+            wx.ArtProvider_GetIcon(wx.ART_FOLDER, size=(16,16)),
+            u'タスクバーアイコン')
+
+    def GetPopupMenu(self):
+        menu = wx.Menu()
+        menu.Append(0, u'Add')
+        item = wx.MenuItem(menu, id=1, text=u'Delete')
+        item.SetBitmap(wx.ArtProvider_GetBitmap(wx.ART_FOLDER_OPEN, size=(16,16)))
+        item.SetTextColour(wx.Color(0xff,0,0))
+        menu.AppendItem(item)
+        menu.AppendRadioItem(2, u'Edit')
+        menu.Append(3, u'Exit')
+        wx.EVT_MENU(menu, 0, self.OnMenu)
+        wx.EVT_MENU(menu, 1, self.OnMenu)
+        wx.EVT_MENU(menu, 2, self.OnMenu)
+        wx.EVT_MENU(menu, 3, self.OnClose)
+        return menu
+
+    def OnClose(self, event):
+        self.tasktray
+        self.Close()
+
+    def OnMenu(self, event):
+        print 'Menu selected.'
+
+if __name__ == '__main__':
+    app = wx.PySimpleApp()
+
+    frame = TaskTrayFrame(None)
+    frame.Show()
+
+    app.SetTopWindow(frame)
+
+    app.MainLoop()
+
+\\
+
+でやりたいことがあったので調べた。 まずwin32clipboardを使えるようにpywin32をインストールする。 ... import win
+
+\\
+
+でやりたいことがあったので調べた。 まずwin32clipboardを使えるようにpywin32をインストールする。 ... import win
+
+\\
+

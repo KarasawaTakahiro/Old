@@ -1,0 +1,6 @@
+nico_id = 'zeuth717@gmail.com'
+nico_pw = 'kusounkobaka'
+gmail_id = 'myremote717@gmail.com'
+gmail_pw = 'kusounkobaka'
+toaddr = 'tkhr-dan-ai@docomo.ne.jp'
+savedir = os.path.join(self.cwd, 'movies')

@@ -1,0 +1,10 @@
+setup.py  :  セットアップ
+
+free_disc_space.py  :  HDの容量計算
+nicoDL.py  :  メイン
+nicodl_instruction.py  :  nicodl_main.py に命令するモジュール
+nicodl_sendmail.py  :  メールを送る
+niconico_mylist_control.py  : マイリス管理
+niconico_mylist_search.py  : ニコニコ動画のマイリストから情報を得る
+nicovideodl.py    :  ニコニコ動画DLモジュール
+youtube_search.py  :  YouTubeのURLをまとめる
