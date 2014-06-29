@@ -1,4 +1,4 @@
-Python Pythonでの制作物です
+Pythonでの制作物です
 =============================
 * MyApps
 * MyProject
