@@ -18,8 +18,8 @@ info = pickle.load(f)
 f.close()
 
 directory = os.getcwd() #ur'C:\Documents and Settings\TOSHIBA\My Documents\My Documents\Takahiro\nicoDL'
-user_id = info['NICO_ID'] #'zeuth717@gmail.com'  # ニコニコアカウント
-pass_wd = info['NICO_PW'] #'kusounkobaka'  # ニコニコパス
+user_id = info['NICO_ID']  # ニコニコアカウント
+pass_wd = info['NICO_PW']  # ニコニコパス
 base_save_dir = info['SAVE_DIR'][1] #r'C:\Documents and Settings\TOSHIBA\My Documents\My Documents\Takahiro\Temporary Files'
 save_dir = info['SAVE_DIR'][0] #r'E:\Takahiro\movie'
 
