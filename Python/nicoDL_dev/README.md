@@ -20,5 +20,5 @@ nicoDL_dev
 * wxPython 2.7
 
 ##実行
-windowsXPで動作はしますが、フォルダ指定がハードコードのため、動作はしません。  
+windowsで動作はしますが、フォルダ指定がハードコードのため、動作はしません。  
 nicoDL.py もしくは nicoDL_main.pyを実行します。
