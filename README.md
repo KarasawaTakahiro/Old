@@ -11,7 +11,7 @@ C言語での制作物です
  * nimgame.c
   * コンソール上で丸バツゲームができます。
 * Python
-Pythonでの制作物です  
+Pythonでの制作物です  （Python2.6、wxPython2.8が必要なものがあります）
  * MyApps
  * MyProject
   * +name
