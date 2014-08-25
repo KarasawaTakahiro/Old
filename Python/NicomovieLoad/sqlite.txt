@@ -1,0 +1,180 @@
+データベースに接続
+sqlite3 データベース名
+
+テーブル作成
+ create table テーブル名(カラム1 [データ型], カラム2 [データ型], ...);
+  データ型を指定しても、指定したデータ型以外の型も入れられる
+primary key
+ create table テーブル名(カラム1 integer primary key);
+  primary key を指定したカラムには重複した値を入れられない。
+  データ型に integer を指定していると自動的に 1 から数値が割り振られていく。
+  さらに例外として整数しか格納出来なくなる。
+  一度使われた値でも再使用される。
+rowid
+  テーブルを作成した時に自動で作られる。
+  integer primary key を指定したカラムと同じ
+  select rowid, * from テーブル名
+  で参照可能。
+autoincrement
+ create table テーブル名(カラム1 integer primary key sutoincrement);
+  primary key や rowid に autoincrement を指定すると同じ値が使われ無くなる
+not null
+ create table テーブル名(カラム1 not null);
+  null を格納できない
+unique
+ create table テーブル名(カラム1 unique);
+  指定したカラムには重複した値を格納できない
+default
+ create table テーブル名(カラム1 default 値, ...);
+  デフォルト値の指定
+  時刻に関する特殊な値を指定できる
+   current_time      HH:MM:SS 形式
+   current_date      YYYY-MM-DD 形式
+   current_timestamp YYYY-MM-DD HH:MM:SS 形式
+check
+ create table テーブル名(カラム名 check(条件式), ...);
+  格納される値が条件に反していないかをチェックする
+  例: check(id > 0)
+テーブル名の変更
+ alter table テーブル名 rename to 新テーブル名;
+カラムの追加
+ alter table テーブル名 add column カラム名[ データ型];
+ primary key や unique 制約は出来ない。
+ default 制約で current_time/current_date/current_timestamp は指定できない
+ not null 制約を設定すると気は null 以外のデフォルトの値が必要
+カラムの削除
+ drop table テーブル名;
+ 空き領域の解放をするには vacuum; を実行しなければならない
+
+データの追加
+ insert into テーブル名 values(値1, 値2, ...);
+  指定された値をテーブルに同じ順で格納していく。
+  格納する値はテーブルの値の数と同じ数だけ指定する。
+カラムを指定してデータを追加する
+ insert into テーブル名(カラム1, カラム2, ...) values(値1, 値2, ...);
+  指定したカラムの数だけ値を指定する
+  指定されなかったカラムには、デフォルト値もしくはnullが格納される。
+全てのカラムにデフォルト値を格納する
+ insert テーブル名 default values;
+他のテーブルのデータを追加する
+ insert into テーブル名 SQL文;
+  例: insert into customer select id, name, address form backup where id > 100;
+  SQL文で取得して他のテーブルのデータを追加。
+  追加するテーブルのカラム数と、SQL文で取得得るデータのカラムの数は一致していなければいけない、
+ insert into テーブル名(カラム名1, カラム名2, ...) SQL文；
+  例: insert into customer(id, name) select code, username from usertable;
+  テーブルのカラムを指定して追加する
+  指定したカラムの数とSQL文で取得する出^他のカラムの数は一致していないといけない。
+  追加されるテーブルを指定されなければデフォルト値かnullが格納される。
+データの更新
+ update テーブル名 set カラム名1 = 値1, カラム名2 = 値2, ...[ where 条件式];
+  where句でテーブル内のデータを指定し、そのデータ内の指定のカラムの値を指定した値で更新する。
+  where句を省略すると、テーブル内の全てのデータの指定のカラムの値が指定の値で更新される。
+データの削除
+ delete from テーブル名 [ where 条件式];
+  where句でテーブル内のデータを指定し、そのデータを削除する。
+  where句を省略するとテーブル内の全てのデータが削除される。
+
+データの取得
+ select カラム名1, カラム名2, ... from テーブル名;
+  テーブル内の指定されたカラムの全データを取得する。
+全てのカラムのデータを取得
+ select * from テーブル名;
+取得データをソート
+ select カラム名, ... from テーブル名 order by カラム名1 [asc | desc], カラム名2 [asc | desc], ...;
+  order by 句の後にソートするカラム名を指定する。
+  昇順なら asc , 降順なら desc を指定する。省略すると昇順でソートされる。
+  ソートするカラムを複数指定した場合、指定した順でソートされる。
+検索条件の設定
+ select カラム名, ... from テーブル名 where 条件式;
+  例: select * from customer where old < 20 and address = '東京';
+  select文でデータを取得する時に検索条件を設定してデータを取得する
+  where句の後に記述した条件式に適合したデータだけを取得する。
+  条件式
+   等しい     =, ==
+   等しくない <>, !=
+   より大きい >
+   以上       >=
+   より小さい <
+   以下       <
+   and        両辺が共に真なら真
+   or         両辺のどちらかが真なら真
+   not        右辺の真偽を反転する
+between:条件式でカラムに含まれる値が範囲内に含まれているかを調べる時
+ ... where カラム >= 値1 and カラム <= 値2;
+ を
+ ... where カラム between 値1 and 値2;
+ と書ける
+in:カラムに含まれる値が、値リストのいずれかに含まれるかを調べる場合
+ select カラム名, ... from テーブル名 where カラム >= 値1 or カラム <= 値2 or ...;
+ を
+ select カラム名, ... from テーブル名 where カラム in(値1, 値2, ...);
+ と書ける。
+他のテーブルの値を参照する
+ select カラム名, ... from テーブル名 where カラム in(select カラム名 from テーブル名);
+  値を並べて指定する代わりに他のテーブルの値を参照して指定する。
+  inの中に記述したselect文は1つのカラムの値だけを取得するようにしなければならない。
+パターンマッチングで比較(like)
+ select カラム名, ... from テーブル名 where カラム like パターン[ escape エスケープ文字];
+  ワイルドカード
+   % 任意の0文字以上の文字列
+   _ 任意の1文字
+  エスケープ文字で指定した文字をワイルドカードのエスケープ文字として使える
+  大文字と小文字を区別しない
+パターンマッチングで比較(grob)
+ select カラム名, ... from テーブル名 where カラム grob パターン;
+  ワイルドカード
+   *     任意の0文字以上の文字列
+   ?     任意の1文字
+   [abc] a or b or cのいずれかに一致
+   [a-d] a〜dまでのいずれかに一致
+   [^ab] aまたはb以外の文字に一致
+  大文字と小文字を区別する
+値がnullの物を取得
+ select カラム名, ... from テーブル名 where カラム is null;
+  isnull も使用可能
+値がnull以外の物を取得
+ select カラム名, ... from テーブル名 where カラム is not null;
+  notnull, not null も使える
+重複行を除外
+ select distinct カラム名, ... from テーブル名;
+  取得したデータの中に重複した行が含まれていた場合にはそれを除外する。
+  指定したカラムの値が全て一致している行を取り除く
+取得データの行数を指定
+ select カラム名, ... from テーブル名 limit 行数[ offset 開始位置];
+  取得するデータの行数を先頭から指定できる
+  offsetを指定すると取得を開始する行の位置を指定できる
+ select カラム名, ... from テーブル名 limit 開始位置, 行数;
+  別の書式
+四則演算の利用
+ select カラム名 演算子 値 from テーブル名;
+  例: select price * 1.05 from goods;  /* price * 1.05 が表示される */
+  取得したカラムの値に対して指定した値で演算した結果を取得する
+条件に応じた値を返す
+ www.dbonline.jo/sqlite/select/index13.html
+ 参照
+
+テーブル一覧
+ .tables
+
+スキーマ表示(テーブルの定義の詳細が見れる)
+ .schema
+
+表示
+ select * from テーブル名;
+
+インデックス:指定したカラムのデータを複製し、検索しやすいように並べたものというイメージ
+ create index インデックス名 on テーブル名(カラム１, カラム2, ...);
+  .indices テーブル名
+  で確認できる。
+インデックスの削除
+ drop index インデックス名;
+  vacuum; で不要な空間を削除できる。
+
+トリガー:テーブルに対する挙動があった時に別のSQL文を実行できる。
+ www.dbonline.jp/sqlite/trigger/index1.html
+ 参照
+
+
+
+
